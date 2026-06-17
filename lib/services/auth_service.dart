@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'models/user.dart';
 
 class AuthService extends ChangeNotifier {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   User? _currentUser;
 
   User? get currentUser => _currentUser;
 
-  AuthService() {
-    _auth.authStateChanges().listen((user) {
-      _currentUser = user != null ? User(id: user.uid, email: user.email!, role: 'customer') : null;
-      notifyListeners();
-    });
+  void login(String email, String password) {
+    // مؤقتاً: تسجيل دخول بسيط بدون Firebase
+    _currentUser = User(id: '1', email: email, role: 'customer');
+    notifyListeners();
   }
+}
+
+class User {
+  final String id;
+  final String email;
+  final String role;
+
+  User({this.id, this.email, this.role});
 }

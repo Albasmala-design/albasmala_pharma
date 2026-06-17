@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import 'services/auth_service.dart';
+import 'customer_home.dart';
 
 class LoginScreen extends StatelessWidget {
   final _emailController = TextEditingController();
@@ -28,17 +30,15 @@ class LoginScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () async {
-                  try {
-                    await FirebaseAuth.instance.signInWithEmailAndPassword(
-                      email: _emailController.text,
-                      password: _passwordController.text,
-                    );
-                  } catch (e) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('خطأ: ${e.message}')),
-                    );
-                  }
+                onPressed: () {
+                  context.read<AuthService>().login(
+                    _emailController.text,
+                    _passwordController.text,
+                  );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => CustomerHome()),
+                  );
                 },
                 child: Text('دخول'),
               ),

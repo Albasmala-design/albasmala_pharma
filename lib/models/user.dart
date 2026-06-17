@@ -1,7 +1,7 @@
 class User {
   final String id;
   final String email;
-  final String role; // owner, supervisor, pharmacy, customer
+  final String role;
 
   User({this.id, this.email, this.role});
 }
