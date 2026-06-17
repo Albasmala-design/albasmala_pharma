@@ -6,7 +6,6 @@ class AuthService extends ChangeNotifier {
   User? get currentUser => _currentUser;
 
   void login(String email, String password) {
-    // مؤقتاً: تسجيل دخول بسيط بدون Firebase
     _currentUser = User(id: '1', email: email, role: 'customer');
     notifyListeners();
   }
