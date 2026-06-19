@@ -1,0 +1,21 @@
+# تحقق من وجود Flutter (سيكون مثبتاً مسبقاً)
+flutter --version
+
+# تأكد من أنك في مجلد المشروع
+pwd  # يجب أن يظهر /workspaces/albasmala_pharma
+
+# أنشئ هيكل Flutter الكامل (المجلدات المفقودة)
+flutter create .
+
+# عندما يسألك "Overwrite existing files?"، اكتب y واضغط Enter
+
+# أضف جميع الملفات الجديدة إلى Git
+git add .
+
+# أنشئ commit
+git commit -m "إضافة هيكل Flutter الكامل وتجهيز المشروع"
+
+# ادفع إلى GitHub (سيبدأ البناء التلقائي عبر GitHub Actions)
+
+
+git push
