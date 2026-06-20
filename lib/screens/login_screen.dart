@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../services/auth_service.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -11,6 +12,10 @@ class LoginScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             context.read<AuthService>().login('test@test.com', 'password');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomeScreen()),
+            );
           },
           child: Text('دخول'),
         ),
