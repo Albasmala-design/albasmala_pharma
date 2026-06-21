@@ -10,13 +10,14 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => AuthService()),
-      ],
+    return ChangeNotifierProvider(
+      create: (context) => AuthService(),
       child: MaterialApp(
-        title: 'البسمله الطبيه',
-        theme: ThemeData(primarySwatch: Colors.teal),
+        title: 'Albasmala Pharma',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ),
         home: LoginScreen(),
       ),
     );
