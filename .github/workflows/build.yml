@@ -18,6 +18,26 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: albasmala-app
+          path: build/app/outputs/flutter-apk/app-release.apk: Build APK
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.5'
+      - name: Create Flutter project
+        run: flutter create . --no-pub
+      - name: Get dependencies
+        run: flutter pub get
+      - name: Build APK
+        run: flutter build apk --release
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: albasmala-app
           path: build/app/outputs/flutter-apk/app-release.apk: Build & Deploy to Firebase
 on:
   push:
