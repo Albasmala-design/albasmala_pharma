@@ -1,11 +1,12 @@
 name: albasmala_pharma
-description: Albasmala Pharma - Integrated Pharmacy Ecosystem
-version: 1.0.0+1
+description: Albasmala Pharma - Integrated Pharmacy Ecosystem for Sudan
+version: 1.1.0+2
 environment:
   sdk: ">=3.0.0 <4.0.0"
 dependencies:
   flutter:
     sdk: flutter
   provider: ^6.1.1
+  http: ^1.1.0
 flutter:
   uses-material-design: true
